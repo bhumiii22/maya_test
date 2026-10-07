@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PipelineIQ Error Test Lab</title>
+</head>
+
+<body>
+
+    <h1>PipelineIQ Error Detection Test 🚨</h1>
+
+    <p>This page intentionally contains multiple errors.</p>
+
+    <button onclick="triggerUndefinedVariable()">
+        Error 1 - Undefined Variable
+    </button>
+
+    <button onclick="triggerNullError()">
+        Error 2 - Null Reference
+    </button>
+
+    <button onclick="triggerTypeError()">
+        Error 3 - Type Error
+    </button>
+
+    <button onclick="triggerPromiseError()">
+        Error 4 - Promise Rejection
+    </button>
+
+    <button onclick="triggerAPIError()">
+        Error 5 - API Error
+    </button>
+
+    <button onclick="triggerJSONError()">
+        Error 6 - JSON Error
+    </button>
+
+    <button onclick="triggerDOMError()">
+        Error 7 - DOM Error
+    </button>
+
+    <button onclick="triggerCustomError()">
+        Error 8 - Custom Error
+    </button>
+
+
+    <script>
+
+        console.log("PipelineIQ Error Test Started 🚀");
+
+
+        // ==========================================
+        // ERROR 1: Undefined Variable
+        // ==========================================
+
+        function triggerUndefinedVariable() {
+
+            console.log(undefinedVariable);
+
+        }
+
+
+        // ==========================================
+        // ERROR 2: Null Reference
+        // ==========================================
+
+        function triggerNullError() {
+
+            const user = null;
+
+            console.log(user.name);
+
+        }
+
+
+        // ==========================================
+        // ERROR 3: Type Error
+        // ==========================================
+
+        function triggerTypeError() {
+
+            const number = 100;
+
+            number.toUpperCase();
+
+        }
+
+
+        // ==========================================
+        // ERROR 4: Promise Rejection
+        // ==========================================
+
+        function triggerPromiseError() {
+
+            Promise.reject(
+                new Error("PipelineIQ Test: Promise rejected intentionally")
+            );
+
+        }
+
+
+        // ==========================================
+        // ERROR 5: API / NETWORK ERROR
+        // ==========================================
+
+        async function triggerAPIError() {
+
+            const response = await fetch(
+                "https://this-api-does-not-exist-12345.com/api/test"
+            );
+
+            const data = await response.json();
+
+            console.log(data);
+
+        }
+
+
+        // ==========================================
+        // ERROR 6: Invalid JSON
+        // ==========================================
+
+        function triggerJSONError() {
+
+            const invalidJSON =
+                '{"name": "PipelineIQ", "status": }';
+
+            JSON.parse(invalidJSON);
+
+        }
+
+
+        // ==========================================
+        // ERROR 7: DOM Error
+        // ==========================================
+
+        function triggerDOMError() {
+
+            const element =
+                document.getElementById("element-that-does-not-exist");
+
+            element.innerHTML = "This will fail";
+
+        }
+
+
+        // ==========================================
+        // ERROR 8: Custom Application Error
+        // ==========================================
+
+        function triggerCustomError() {
+
+            throw new Error(
+                "PipelineIQ Test: Critical payment processing failure"
+            );
+
+        }
+
+
+        // ==========================================
+        // ERROR 9: Array Error
+        // ==========================================
+
+        function triggerArrayError() {
+
+            const numbers = null;
+
+            numbers.map(number => number * 2);
+
+        }
+
+
+        // ==========================================
+        // ERROR 10: Local Storage Error Simulation
+        // ==========================================
+
+        function triggerStorageError() {
+
+            throw new Error(
+                "PipelineIQ Test: Unable to access user session storage"
+            );
+
+        }
+
+
+        // ==========================================
+        // ERROR 11: Database Error Simulation
+        // ==========================================
+
+        function simulateDatabaseError() {
+
+            throw new Error(
+                "PipelineIQ Test: MongoDB connection failed"
+            );
+
+        }
+
+
+        // ==========================================
+        // ERROR 12: Authentication Error Simulation
+        // ==========================================
+
+        function simulateAuthError() {
+
+            throw new Error(
+                "PipelineIQ Test: Authentication token expired"
+            );
+
+        }
+
+
+        // ==========================================
+        // AUTOMATIC ERROR
+        // Runs 5 seconds after page loads
+        // ==========================================
+
+        setTimeout(() => {
+
+            console.error(
+                "PipelineIQ TEST: Automatic error generated"
+            );
+
+            throw new Error(
+                "PipelineIQ Test: Automatic JavaScript failure"
+            );
+
+        }, 5000);
+
+
+        // ==========================================
+        // GLOBAL ERROR HANDLER TEST
+        // ==========================================
+
+        window.addEventListener("error", (event) => {
+
+            console.log(
+                "Global error captured:",
+                event.message
+            );
+
+        });
+
+
+        // ==========================================
+        // UNHANDLED PROMISE REJECTION TEST
+        // ==========================================
+
+        window.addEventListener(
+            "unhandledrejection",
+            (event) => {
+
+                console.log(
+                    "Unhandled promise rejection:",
+                    event.reason
+                );
+
+            }
+        );
+
+
+        console.log(
+            "All PipelineIQ error tests loaded successfully."
+        );
+
+    </script>
+
+</body>
+</html>
